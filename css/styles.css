@@ -176,6 +176,9 @@ header {
 .green {
   color: var(--green);
 }
+.black {
+  color: var(--black);
+}
 .text-right {
   text-align: right;
 }
@@ -219,6 +222,17 @@ header {
 
 /* Hero CTA buttons: same visual style */
 .hero-cta {
+  /* position the footer logo lower in the footer row */
+  .footer-logo {
+    align-self: flex-end;
+  }
+
+  @media (max-width: 720px) {
+    .footer-logo {
+      align-self: center;
+      margin-bottom: 8px;
+    }
+  }
   display: flex;
   gap: 12px;
   margin-top: 18px;
@@ -337,4 +351,251 @@ header {
 }
 .link .btn-submit:hover {
   opacity: 0.95;
+}
+
+/* Benefits: use CSS Grid for row placement (header spans full width) */
+.benefits .container.rows-inline {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* three equal columns for content rows */
+  gap: 24px;
+  align-items: start;
+  padding: 20px 20px 20px 20px;
+}
+.benefits .container.rows-inline > div {
+  min-width: 0;
+}
+
+/* Make the header-row span the full width so the H2 centers across the page */
+.benefits .container.rows-inline > .header-row {
+  grid-column: 1 / -1;
+  text-align: center; /* center the heading across the full container */
+}
+
+/* Benefit box inside flexible-row */
+.benefits .flexible-row .benefit-box {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--white);
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  color: var(--black);
+}
+.benefits .flexible-row .benefit-box .benefit-content {
+  flex: 1 1 auto;
+}
+.benefits .flexible-row .benefit-box h1 {
+  font-size: 28px;
+  margin: 0 0 12px 0;
+  color: var(--dark-gray);
+}
+.benefits .flexible-row .benefit-box p {
+  margin: 0 0 10px 0;
+  color: var(--gray);
+}
+.benefits .flexible-row .benefit-img {
+  display: block;
+  max-width: 160px;
+  height: auto;
+  margin-top: 0;
+}
+
+@media (max-width: 720px) {
+  .benefits .flexible-row .benefit-box {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .benefits .flexible-row .benefit-img {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .benefits .container.rows-inline {
+    grid-template-columns: 1fr; /* stack into single column on mobile */
+    gap: 12px;
+  }
+}
+
+/* Benefits section — replaced with user-provided styles */
+.benefits-section {
+  width: 90%;
+  max-width: 1100px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.benefits-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.highlight {
+  color: #83c183;
+}
+
+.benefit-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.benefit-text {
+  flex: 1;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.benefit-text h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.benefit-text h2 span {
+  color: #83c183;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.benefit-text p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.benefit-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefit-img img {
+  width: 180px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .benefit-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .benefit-card.reverse {
+    flex-direction: column;
+  }
+
+  .benefit-text {
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .benefit-img img {
+    width: 140px;
+  }
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+  padding-top: 40px;
+}
+
+/* Layout container */
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 20px 40px;
+}
+
+/* Logo */
+.footer-logo img {
+  width: 120px;
+  color: black;
+  padding-top: 50px;
+}
+
+/* Contact Info */
+.footer-contact {
+  text-align: left;
+  color: #4a4a4a;
+}
+
+.footer-contact h4 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.footer-contact p {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+/* Download Buttons */
+.footer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2e284d;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.download-btn img {
+  width: 18px;
+  margin-right: 8px;
+}
+
+.download-btn:hover {
+  background-color: #1e1a35;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid #eee;
+  margin-top: 30px;
+  padding: 15px 0;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #7ec77d;
 }
