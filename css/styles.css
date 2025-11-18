@@ -222,17 +222,6 @@ header {
 
 /* Hero CTA buttons: same visual style */
 .hero-cta {
-  /* position the footer logo lower in the footer row */
-  .footer-logo {
-    align-self: flex-end;
-  }
-
-  @media (max-width: 720px) {
-    .footer-logo {
-      align-self: center;
-      margin-bottom: 8px;
-    }
-  }
   display: flex;
   gap: 12px;
   margin-top: 18px;
@@ -540,6 +529,18 @@ header {
   padding-top: 50px;
 }
 
+/* position the footer logo lower in the footer row */
+.footer-logo {
+  align-self: flex-end;
+}
+
+@media (max-width: 720px) {
+  .footer-logo {
+    align-self: center;
+    margin-bottom: 8px;
+  }
+}
+
 /* Contact Info */
 .footer-contact {
   text-align: left;
@@ -549,7 +550,7 @@ header {
 .footer-contact h4 {
   font-weight: 600;
   margin-bottom: 10px;
-  color: #222;
+  color: var(--black);
 }
 
 .footer-contact p {
@@ -561,8 +562,14 @@ header {
 /* Download Buttons */
 .footer-buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.download-btn {
+  white-space: nowrap;
 }
 
 .download-btn {
@@ -571,8 +578,10 @@ header {
   justify-content: center;
   background-color: #2e284d;
   color: #fff;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 6px;
